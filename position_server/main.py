@@ -1,13 +1,14 @@
-from fastapi import FastAPI, Request
-import uvicorn
 import datetime
 
+import uvicorn
+from fastapi import FastAPI, Request
 
-app = FastAPI()
+app = FastAPI(title="Trade Allocation Simulator Position Monitor")
 
-app.get("/")
+
+@app.get("/")
 async def root():
-    return {"message": "Processing data"}
+    return {"message": "Position monitor is running"}
 
 @app.post("/position_send")
 async def show_position(request: Request):
